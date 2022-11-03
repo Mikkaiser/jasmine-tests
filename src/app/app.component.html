@@ -1,8 +1,9 @@
-<p>
-  {{ title }}
-</p>
 <main>
   <p *ngFor="let product of products">
     {{ product.name }}
   </p>
+  <div>
+    <button (click)="toggleOnOff()">Click to Toggle</button>
+    <strong>{{ message }}</strong>
+  </div>
 </main>

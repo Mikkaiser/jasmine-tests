@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'jasmine-angular';
-  products!: ProductInterface[];
+  products: ProductInterface[] = [];
+  isOn: boolean = false;
 
   constructor(private appService: AppService) {}
 
@@ -19,8 +20,15 @@ export class AppComponent implements OnInit {
 
   getProducts() {
     this.appService.getProducts().subscribe((products: ProductInterface[]) => {
-      console.log(products);
       this.products = products;
     });
+  }
+
+  toggleOnOff() {
+    this.isOn = !this.isOn;
+  }
+
+  get message() {
+    return `Current state is: ${this.isOn}`;
   }
 }
